@@ -9,9 +9,14 @@ import { deleteRuleFile } from "./deleteRuleFile"
 import { getRelativePaths } from "./getRelativePaths"
 import { openFile } from "./openFile"
 import { openImage } from "./openImage"
+import { openMention } from "./openMention"
+import { refreshRules } from "./refreshRules"
 import { searchCommits } from "./searchCommits"
 import { searchFiles } from "./searchFiles"
 import { selectImages } from "./selectImages"
+import { toggleClineRule } from "./toggleClineRule"
+import { toggleCursorRule } from "./toggleCursorRule"
+import { toggleWindsurfRule } from "./toggleWindsurfRule"
 
 // Register all file service methods
 export function registerAllMethods(): void {
@@ -22,7 +27,12 @@ export function registerAllMethods(): void {
 	registerMethod("getRelativePaths", getRelativePaths)
 	registerMethod("openFile", openFile)
 	registerMethod("openImage", openImage)
+	registerMethod("openMention", openMention)
+	registerMethod("refreshRules", refreshRules)
 	registerMethod("searchCommits", searchCommits)
 	registerMethod("searchFiles", searchFiles)
 	registerMethod("selectImages", selectImages)
+	registerMethod("toggleClineRule", toggleClineRule)
+	registerMethod("toggleCursorRule", toggleCursorRule)
+	registerMethod("toggleWindsurfRule", toggleWindsurfRule)
 }
