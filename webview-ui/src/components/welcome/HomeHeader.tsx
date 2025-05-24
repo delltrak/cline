@@ -1,7 +1,11 @@
 import ClineLogoVariable from "@/assets/ClineLogoVariable"
 import HeroTooltip from "@/components/common/HeroTooltip"
+import { useExtensionState } from "@/context/ExtensionStateContext"
+import { useMemo } from "react"
 
 const HomeHeader = () => {
+	
+
 	return (
 		<div className="flex flex-col items-center mb-5">
 			<div className="my-5">
@@ -21,6 +25,7 @@ const HomeHeader = () => {
 					/>
 				</HeroTooltip>
 			</div>
+			
 		</div>
 	)
 }

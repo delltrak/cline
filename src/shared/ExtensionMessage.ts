@@ -145,7 +145,8 @@ export interface ExtensionState {
 	localClineRulesToggles: ClineRulesToggles
 	workflowToggles: ClineRulesToggles
 	localCursorRulesToggles: ClineRulesToggles
-	localWindsurfRulesToggles: ClineRulesToggles
+	localWindsurfRulesToggles: ClineRulesToggles,
+	totalCost?: number
 }
 
 export interface ClineMessage {

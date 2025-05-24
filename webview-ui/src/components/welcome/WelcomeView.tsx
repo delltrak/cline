@@ -8,8 +8,10 @@ import ClineLogoWhite from "@/assets/ClineLogoWhite"
 import { AccountServiceClient } from "@/services/grpc-client"
 import { EmptyRequest } from "@shared/proto/common"
 
+import HistoryView from "../history/HistoryView"
+
 const WelcomeView = memo(() => {
-	const { apiConfiguration } = useExtensionState()
+	const { apiConfiguration, totalCost } = useExtensionState()
 	const [apiErrorMessage, setApiErrorMessage] = useState<string | undefined>(undefined)
 	const [showApiOptions, setShowApiOptions] = useState(false)
 
@@ -32,6 +34,8 @@ const WelcomeView = memo(() => {
 	return (
 		<div className="fixed inset-0 p-0 flex flex-col">
 			<div className="h-full px-5 overflow-auto">
+				
+				<HistoryView onDone={() => {}} />
 				<h2>Hi, I'm Cline</h2>
 				<div className="flex justify-center my-5">
 					<ClineLogoWhite className="size-16" />

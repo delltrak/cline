@@ -1379,6 +1379,41 @@ export class Controller {
 			shellIntegrationTimeout,
 			isNewUser,
 		}
+
+		const totalCost = (taskHistory || []).reduce((sum, item) => sum + (item.totalCost || 0), 0)
+
+		return {
+			version: this.context.extension?.packageJSON?.version ?? "",
+			apiConfiguration,
+			customInstructions,
+			uriScheme: vscode.env.uriScheme,
+			currentTaskItem: this.task?.taskId ? (taskHistory || []).find((item) => item.id === this.task?.taskId) : undefined,
+			checkpointTrackerErrorMessage: this.task?.checkpointTrackerErrorMessage,
+			clineMessages: this.task?.clineMessages || [],
+			taskHistory: (taskHistory || [])
+				.filter((item) => item.ts && item.task)
+				.sort((a, b) => b.ts - a.ts)
+				.slice(0, 100), // for now we're only getting the latest 100 tasks, but a better solution here is to only pass in 3 for recent task history, and then get the full task history on demand when going to the task history view (maybe with pagination?)
+			shouldShowAnnouncement: lastShownAnnouncementId !== this.latestAnnouncementId,
+			platform: process.platform as Platform,
+			autoApprovalSettings,
+			browserSettings,
+			chatSettings,
+			userInfo,
+			mcpMarketplaceEnabled,
+			telemetrySetting,
+			planActSeparateModelsSetting,
+			enableCheckpointsSetting: enableCheckpointsSetting ?? true,
+			vscMachineId: vscode.env.machineId,
+			globalClineRulesToggles: globalClineRulesToggles || {},
+			localClineRulesToggles: localClineRulesToggles || {},
+			localWindsurfRulesToggles: localWindsurfRulesToggles || {},
+			localCursorRulesToggles: localCursorRulesToggles || {},
+			workflowToggles: workflowToggles || {},
+			shellIntegrationTimeout,
+			isNewUser,
+			totalCost: totalCost,
+		}
 	}
 
 	async clearTask() {
