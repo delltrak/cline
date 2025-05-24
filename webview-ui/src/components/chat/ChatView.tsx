@@ -1067,7 +1067,6 @@ const ChatView = ({ isHidden, showAnnouncement, hideAnnouncement, showHistoryVie
 					<HomeHeader />
 					{totalCost > 0 && <TotalCostCard totalCost={totalCost} />}
 					{taskHistory.length > 0 && <HistoryPreview showHistoryView={showHistoryView} />}
-					
 				</div>
 			)}
 

@@ -34,7 +34,6 @@ const WelcomeView = memo(() => {
 	return (
 		<div className="fixed inset-0 p-0 flex flex-col">
 			<div className="h-full px-5 overflow-auto">
-				
 				<HistoryView onDone={() => {}} />
 				<h2>Hi, I'm Cline</h2>
 				<div className="flex justify-center my-5">
